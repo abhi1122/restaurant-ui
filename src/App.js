@@ -1,17 +1,21 @@
 import React from 'react';
-//import logo from './logo.svg';
-import './App.css';
-//import Main from "./component/Main";
+import { Provider } from 'react-redux';
+// import { createStore, applyMiddleware } from 'redux';
+// import thunk from 'redux-thunk';
+// import rootReducer from './reducers';
+import Routing from './navigations';
+// import './App.css';
 import Layout from './component/Layout';
 
-//routing
-import Routing from './navigations';
+// const store = createStore(rootReducer, applyMiddleware(thunk));
+// //routing
+// console.log(rootReducer,"rootReducer............")
 
 function App() {
   return (
     <>
       <Layout>
-       {Routing}
+        {Routing}
       </Layout>
     </>
   );

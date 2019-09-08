@@ -1,0 +1,6 @@
+{
+    "name":"${name}",
+    "version":"${version}",
+    "intId":"${intId}",
+    "host":"${host}"
+}
