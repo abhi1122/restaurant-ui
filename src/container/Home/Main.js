@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { connect } from 'react-redux';
 import { __ } from "../../utils/lang";
-import { callServise } from "../../utils/axios"
+import { httpHandler } from "../../utils/axios";
 
 //import Drawer from 'react-motion-drawer';
 import { FaStar } from "react-icons/fa";
@@ -23,9 +23,9 @@ class Main extends Component {
   //   super(props);
   // }
   componentDidMount() {
-    callServise("/post",{}).then(()=>{
+    // httpHandler("get","/restaurant/list",).then((data)=>{
 
-    });
+    // });
   }
 
   render() {
