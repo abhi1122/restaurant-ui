@@ -10,7 +10,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { connect } from 'react-redux';
 import { __ } from "../../utils/lang";
-import { httpHandler } from "../../utils/axios";
+import { getList } from "../../actions/restaurant";
 
 //import Drawer from 'react-motion-drawer';
 import { FaStar } from "react-icons/fa";
@@ -26,11 +26,12 @@ class Main extends Component {
     // httpHandler("get","/restaurant/list",).then((data)=>{
 
     // });
+    this.props.getList("get","/restaurant/list");
   }
 
   render() {
-    console.log(__("Resturant List"))
-    const { classes } = this.props;
+    console.log(this.props.list,"this.props.list")
+    const { classes,list } = this.props;
     const menu = [{ name: "BreakFast Lorem", price: "$12", image: "image1.jpg", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", rating: "4", textOver: "Lorem Ipsum" },
     { name: "Dinner Lorem Ipsum", price: "$12", image: "image4.jpg", description: " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s", rating: "4.5", textOver: "Dummy Lorem" },
     { name: "Lunch Ipsum", price: "$12", image: "image3.jpg", description: "when an unknown printer took a galley of type and scrambled it to make a type specimen book", rating: "4.1", textOver: "Ipsum Lorem" },
@@ -41,7 +42,7 @@ class Main extends Component {
         <Grid container className={classes.root} >
           <Grid item xs={12}>
             <Grid container justify="center" >
-              {menu.map(value => (
+              {list.map(value => (
                 <Grid key={value} item className={classes.gridStyle}>
                   <Card className={classes.card}>
                     <CardActionArea>
@@ -133,20 +134,21 @@ const styles = theme => ({
   }
 });
 //export default withStyles(styles)(Main);
+
 const mapStateToProps = state => {
-  return { config: state.config }
+  return {
+    config: state.config,
+    list: state.restaurants.data.listData
+  }
 }
 
-//({
-//todos: getVisibleTodos(state.todos, state.visibilityFilter)
-//console.log(state);
-//})
-
-// const mapDispatchToProps = dispatch => ({
-//   toggleTodo: id => dispatch(toggleTodo(id))
-// })
+const mapDispatchToProps = dispatch => {
+  return {
+    getList: () => dispatch(getList)
+  }
+}
 
 export default connect(
   mapStateToProps,
-  //mapDispatchToProps
+  mapDispatchToProps
 )(withStyles(styles)(Main));
