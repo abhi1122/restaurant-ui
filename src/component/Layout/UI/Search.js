@@ -14,7 +14,9 @@ import InputBase from '@material-ui/core/InputBase';
 import IconButton from '@material-ui/core/IconButton';
 import MenuIcon from '@material-ui/icons/Menu';
 import SearchIcon from '@material-ui/icons/Search';
-//import DirectionsIcon from '@material-ui/icons/Directions';
+import { FaSlidersH } from "react-icons/fa";
+import { Link } from "react-router-dom";
+
 const useStyles = makeStyles(theme => ({
   root: {
     padding: '2px 4px',
@@ -50,7 +52,9 @@ export default function Search() {
         inputProps={{ 'aria-label': 'search' }}
       />
       <IconButton className={classes.iconButton} aria-label="search">
-      <MenuIcon />
+         {/* <Link to="/filter"> */}
+           <FaSlidersH />
+         {/* </Link> */}
       </IconButton>
       {/* <Divider className={classes.divider} orientation="vertical" /> */}
       {/* <IconButton color="primary" className={classes.iconButton} aria-label="directions">

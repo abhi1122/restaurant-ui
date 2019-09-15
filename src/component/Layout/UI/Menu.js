@@ -64,14 +64,14 @@ export default function SwipeableTemporaryDrawer() {
   return (
     <>
      
-      <IoMdMenu size={28} onClick={toggleDrawer('left', true)} style={{marginLeft:"2px",cursor:"pointer",color:"grey"}}/>
+      <IoMdMenu size={28} onClick={toggleDrawer('right', true)} style={{marginLeft:"2px",cursor:"pointer",color:"grey"}}/>
       <SwipeableDrawer
-        anchor="left"
-        open={state.left}
-        onClose={toggleDrawer('left', false)}
-        onOpen={toggleDrawer('left', true)}
+        anchor="right"
+        open={state.right}
+        onClose={toggleDrawer('right', false)}
+        onOpen={toggleDrawer('right', true)}
       >
-        {sideList('left')}
+        {sideList('right')}
       </SwipeableDrawer>
     </>
   );

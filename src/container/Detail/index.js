@@ -10,8 +10,9 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 //import Drawer from 'react-motion-drawer';
 import { FaStar } from "react-icons/fa";
-import CategorySlider from "../../component/GridSlider/Category"
-import Comment from "../../component/Comment"
+import CategorySlider from "../../component/GridSlider/Category";
+import Comment from "../../component/Comment";
+import { Link } from "react-router-dom";
 
 // import SwipeableTemporaryDrawer from "./UI/Menu";
 // import Header from "./UI/Header";
@@ -109,13 +110,16 @@ class Detail extends Component {
           </CardActions>
       </Card>
         </Grid>
-           <Grid item   justify="center">
-             
-        </Grid>
-        <Grid item  >   
-                  <h5>
-                      Categories
-                  </h5>
+        <Grid item  className={classes.gridPadding}>   
+        <Typography component="div" className={classes.headingDiv}>
+                  <Typography  variant="h6" component="span" className={classes.left}>
+                    Categories
+                  </Typography>
+                  <Typography variant="h6" component="span" className={classes.right}>
+                  <Link to="/category">more</Link>
+                  </Typography>
+                  
+              </Typography>
             <CategorySlider categoryData={categoryData} />
             
         </Grid>
@@ -133,6 +137,7 @@ const styles  = theme => ({
   root: {
     flexGrow: 1,marginBottom:80
   },
+  gridPadding:{padding:10},
   headingDiv:{height:40},
   description:{marginTop:30},
   textAreaStyle:{
@@ -151,7 +156,7 @@ const styles  = theme => ({
     borderRadius: 5
   },
   card: {
-    maxWidth: 500
+    //maxWidth: 500
   },
   media: {
     height: 140,

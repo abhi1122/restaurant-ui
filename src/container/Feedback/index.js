@@ -5,19 +5,15 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-//import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
-
-//import Drawer from 'react-motion-drawer';
+import Button from '@material-ui/core/Button';
 import { FaStar } from "react-icons/fa";
 import Rating from '@material-ui/lab/Rating';
 import TextareaAutosize from '@material-ui/core/TextareaAutosize';
 
 
-// import SwipeableTemporaryDrawer from "./UI/Menu";
-// import Header from "./UI/Header";
-class Second extends Component {
+class Feedback extends Component {
   // constructor(props) {
   //   super(props);
   // }
@@ -67,7 +63,8 @@ class Second extends Component {
       <div className={classes.btnDiv}>
           <TextareaAutosize className={classes.textAreaStyle} aria-label="minimum height" rows={6} cols={40} placeholder="Comment" /> 
           <br/>
-          <button type="submit" className="btn btn-submit">Submit Rating</button>
+          {/* <button type="submit" className="btn btn-submit">Submit Rating</button> */}
+          <Button size="small"  color="primary"> Submit Rating  </Button>
       </div>
     )
   return (
@@ -90,31 +87,29 @@ const styles  = theme => ({
     flexGrow: 1,marginBottom:80
   },
   textAreaStyle:{
-    padding: 10,
-    borderRadius: 5,
-    marginBottom:10
+    padding: 10,borderRadius: 5, marginBottom:10
   },
-  btnDiv:{textAlign:"center",padding:10},
-  ratingClass:{justifyContent:"center"},
+  btnDiv:{
+    textAlign:"center",padding:10
+  },
+  ratingClass:{
+    justifyContent:"center"
+  },
   ratingDiv:{
-    padding:10,
-    backgroundColor: "ghostwhite",
-    marginTop:5,
-    marginBottom:5,
-    border: 2,
-    borderRadius: 5
+    padding:10,backgroundColor: "ghostwhite", marginTop:5, marginBottom:5, border: 2, borderRadius: 5
   },
   card: {
     maxWidth: 500
   },
-  media: {
-    height: 140,
-  },
   gridStyle:{
-    width:500,padding:10
+    width:500, padding:10
   },
-  left : {float : "left"},
-  right : {float : "right"},
+  left : {
+    float : "left"
+  },
+  right : {
+    float : "right"
+  },
   overlayText: {
     position: 'absolute',
     top: '10px',
@@ -140,4 +135,4 @@ const styles  = theme => ({
     borderRadius:2
   }
 });
-export default withStyles(styles)(Second);
+export default withStyles(styles)(Feedback);

@@ -3,7 +3,7 @@ var appConfig=require("../config/app-config.json");
 
 let loadConfig = () => {
     let appConfigData = { ...appConfig };
-    for (let key in appConfigData) {
+    for (var key in appConfigData) {
         let value = appConfigData[key].replace(/[${}]/g, '');
         if (process.env[value]) {
             appConfig[key] = process.env[value];
