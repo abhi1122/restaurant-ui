@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import config from "../../src/utils/config.js"
 import { format } from 'path';
-//import simpleReducer from './simpleReducer';
+import restaurants from './restaurants';
 
 console.log(config,"config...")
 
@@ -10,6 +10,6 @@ var loadConfig = () => {
     return config;
 }
 export default combineReducers({
-    config: loadConfig
-    //simpleReducer
+    config: loadConfig,
+    restaurants
 });

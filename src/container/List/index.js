@@ -11,7 +11,7 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import { connect } from 'react-redux';
 import { __ } from "../../utils/lang";
-import { callServise } from "../../utils/axios"
+import { getList } from "../../actions/restaurant";
 
 //import Drawer from 'react-motion-drawer';
 import { FaStar } from "react-icons/fa";
@@ -23,9 +23,10 @@ class List extends Component {
   //   super(props);
   // }
   componentDidMount() {
-    callServise("/post",{}).then(()=>{
+    // httpHandler("get","/restaurant/list",).then((data)=>{
 
-    });
+    // });
+    this.props.getList("get","/restaurant/list");
   }
 
   render() {
@@ -41,7 +42,7 @@ class List extends Component {
         <Grid container className={classes.root} >
           <Grid item xs={12}>
             <Grid container justify="center" >
-              {menu.map(value => (
+              {list.map(value => (
                 <Grid key={value} item className={classes.gridStyle}>
                   <Link to="/detail">
                   <Card className={classes.card}>
@@ -123,20 +124,21 @@ const styles = theme => ({
   }
 });
 //export default withStyles(styles)(Main);
+
 const mapStateToProps = state => {
-  return { config: state.config }
+  return {
+    config: state.config,
+    list: state.restaurants.data.listData
+  }
 }
 
-//({
-//todos: getVisibleTodos(state.todos, state.visibilityFilter)
-//console.log(state);
-//})
-
-// const mapDispatchToProps = dispatch => ({
-//   toggleTodo: id => dispatch(toggleTodo(id))
-// })
+const mapDispatchToProps = dispatch => {
+  return {
+    getList: () => dispatch(getList)
+  }
+}
 
 export default connect(
   mapStateToProps,
-  //mapDispatchToProps
-)(withStyles(styles)(List));
+  mapDispatchToProps
+)(withStyles(styles)(Main));
