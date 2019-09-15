@@ -32,7 +32,7 @@ class List extends Component {
   render() {
     console.log(__("Resturant List"))
     const { classes } = this.props;
-    const menu = [{ name: "BreakFast Lorem", price: "$12", image: "/restaurants/rest1.jpg", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", rating: "4", textOver: "Lorem Ipsum" },
+    const list = [{ name: "BreakFast Lorem", price: "$12", image: "/restaurants/rest1.jpg", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", rating: "4", textOver: "Lorem Ipsum" },
     { name: "Dinner Lorem Ipsum", price: "$12", image: "/restaurants/rest4.jpg", description: " Lorem Ipsum has been the industry's standard dummy text ever since the 1500s", rating: "4.5", textOver: "Dummy Lorem" },
     { name: "Lunch Ipsum", price: "$12", image: "/restaurants/rest3.jpg", description: "when an unknown printer took a galley of type and scrambled it to make a type specimen book", rating: "4.1", textOver: "Ipsum Lorem" },
     { name: "Pie Lorem Ipsum", price: "$12", image: "/restaurants/rest2.jpg", description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry.", rating: "3.5", textOver: "Lorem Ipsum" }];
@@ -141,4 +141,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(withStyles(styles)(Main));
+)(withStyles(styles)(List));
